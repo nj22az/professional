@@ -579,7 +579,7 @@ const ProfileView: React.FC = () => {
                   whileHover={{ rotate: -10 }}
                   whileTap={{ rotate: -10 }}
                   transition={{ duration: 0.2 }}
-                  className="w-[120px] h-[120px] rounded-[28px] overflow-hidden shadow-lg shrink-0 print:w-[120px] print:h-[120px]"
+                  className="w-[160px] h-[160px] rounded-[32px] overflow-hidden shadow-lg shrink-0 print:w-[120px] print:h-[120px]"
                 >
                   <img
                     src={personalInfo.contact.photoUrl}
@@ -588,7 +588,7 @@ const ProfileView: React.FC = () => {
                     draggable={false}
                   />
                 </motion.div>
-                <div className="w-[120px] flex flex-col gap-2">
+                <div className="w-[160px] flex flex-col gap-2">
                   <div className="flex flex-col gap-2">
                     <motion.button
                       initial={{ opacity: 0 }}
