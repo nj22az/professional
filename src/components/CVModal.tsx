@@ -17,21 +17,46 @@ const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
     if (!printableRef.current) return;
 
     try {
-      // Capture the CV content
-      const canvas = await html2canvas(printableRef.current, {
-        scale: 2, // Higher quality
+      // Set up PDF options with compression
+      const pdf = new jsPDF({
+        format: 'a4',
+        unit: 'mm',
+        orientation: 'portrait',
+        compress: true
+      });
+
+      // Optimize canvas capture
+      const element = printableRef.current;
+      const canvas = await html2canvas(element, {
+        scale: 2,
         useCORS: true,
         logging: false,
         backgroundColor: '#ffffff'
       });
 
-      // Convert to PDF (A4 size)
-      const imgWidth = 210; // A4 width in mm
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      const pdf = new jsPDF('p', 'mm', 'a4');
-      const imgData = canvas.toDataURL('image/png');
+      // Calculate dimensions to maintain aspect ratio
+      const imgData = canvas.toDataURL('image/jpeg', 0.95);
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+      
+      // Calculate scaling to fit the width while maintaining aspect ratio
+      const imgWidth = pageWidth;
+      const imgHeight = (canvas.height * pageWidth) / canvas.width;
+      
+      // Center vertically if image is shorter than page
+      const yPosition = Math.max(0, (pageHeight - imgHeight) / 2);
 
-      pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+      // Add image with optimized settings
+      pdf.addImage(imgData, 'JPEG', 0, yPosition, imgWidth, imgHeight, undefined, 'FAST');
+
+      // Set PDF metadata for better optimization
+      pdf.setProperties({
+        title: 'CV - Nils Johansson',
+        subject: 'Professional CV',
+        creator: 'CV Website',
+        author: 'Nils Johansson'
+      });
+
       pdf.save('CV-Nils-Johansson.pdf');
     } catch (error) {
       console.error('Error generating PDF:', error);
@@ -60,7 +85,7 @@ const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
               {/* Modal Header */}
               <div className="flex justify-between items-center p-4 border-b border-gray-200">
                 <h2 className="text-lg font-semibold text-gray-900">Printable CV</h2>
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2">
                   <button
                     onClick={handleDownloadPDF}
                     className="flex items-center gap-2 px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-[13px] font-medium hover:bg-blue-100 transition-colors"
@@ -78,15 +103,10 @@ const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
               </div>
 
               {/* CV Content */}
-              <div className="hidden md:block">
-                <div ref={printableRef} className="p-6 bg-white">
+              <div className="p-6 bg-white print:p-0">
+                <div ref={printableRef} className="print-content">
                   <PrintableCV />
                 </div>
-              </div>
-
-              {/* Mobile Download Message */}
-              <div className="block md:hidden p-6 text-center">
-                <p className="text-gray-600 mb-4">The CV preview is optimized for desktop viewing. Click the Download PDF button above to view the full CV on your device.</p>
               </div>
             </motion.div>
           </div>

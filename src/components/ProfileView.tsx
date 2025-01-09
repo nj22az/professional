@@ -39,9 +39,7 @@ import {
   GraduationCap,
   Binary,
   Download,
-  Clock,
-  Monitor,
-  Smartphone
+  Clock
 } from 'lucide-react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import CVModal from './CVModal';
@@ -397,7 +395,6 @@ const ProfileView: React.FC = () => {
   const [showAllExperiences, setShowAllExperiences] = useState(false);
   const [showCVModal, setShowCVModal] = useState(false);
   const [showCoverLetterModal, setShowCoverLetterModal] = useState(false);
-  const [viewMode, setViewMode] = useState<'desktop' | 'mobile'>('mobile');
   
   // Add motion values for tilt animation
   const x = useMotionValue(0);
@@ -567,12 +564,12 @@ const ProfileView: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className={`ios-card mb-6 ${viewMode === 'mobile' ? 'mx-0' : ''}`}
+          className="ios-card mb-6"
         >
-          <div className={viewMode === 'mobile' ? 'ios-card-padding' : 'p-8 print:p-4'}>
-            <div className={`ios-stack ${viewMode === 'desktop' ? 'sm:flex-row gap-8 items-start' : 'items-center'} print:gap-4`}>
+          <div className="ios-card-padding">
+            <div className="ios-stack sm:flex-row sm:gap-8 sm:items-start">
               {/* Profile Image and Buttons */}
-              <div className={`ios-stack ${viewMode === 'desktop' ? 'sm:items-center' : 'items-center'} gap-4 ${viewMode === 'desktop' ? 'sm:w-[280px]' : 'w-full max-w-[280px]'}`}>
+              <div className="ios-stack items-center gap-4 w-full max-w-[280px]">
                 <motion.div
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
@@ -624,66 +621,26 @@ const ProfileView: React.FC = () => {
                       Timeline
                     </motion.button>
                   </div>
-                  
-                  {/* View Toggle Buttons */}
-                  <div className="flex items-center justify-center gap-3 mt-1">
-                    <div className="flex flex-col items-center">
-                      <motion.button
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        onClick={() => setViewMode('mobile')}
-                        className={`w-7 h-7 rounded-full flex items-center justify-center transition-all ${
-                          viewMode === 'mobile' 
-                            ? 'bg-gray-900 text-white' 
-                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
-                      >
-                        <Smartphone className="w-3.5 h-3.5" />
-                      </motion.button>
-                      <span className="ios-caption-secondary mt-1">Mobile</span>
-                    </div>
-                    <div className="flex flex-col items-center">
-                      <motion.button
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        onClick={() => setViewMode('desktop')}
-                        className={`w-7 h-7 rounded-full flex items-center justify-center transition-all ${
-                          viewMode === 'desktop' 
-                            ? 'bg-gray-900 text-white' 
-                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
-                      >
-                        <Monitor className="w-3.5 h-3.5" />
-                      </motion.button>
-                      <span className="ios-caption-secondary mt-1">Desktop</span>
-                    </div>
-                  </div>
                 </div>
               </div>
 
               {/* Profile Info */}
-              <div className={`flex-1 ${viewMode === 'mobile' ? 'text-center mt-8' : ''}`}>
-                <h1 className={`${viewMode === 'mobile' ? 'ios-title-large' : 'text-[34px]'} ios-text-primary mb-2 print:text-[24px] print:mb-1`}>
+              <div className="flex-1 text-center sm:text-left mt-8 sm:mt-0">
+                <h1 className="text-[34px] ios-text-primary mb-2 print:text-[24px] print:mb-1">
                   {personalInfo.name}
                 </h1>
                 <div className="ios-stack-small mb-4 print:mb-2">
-                  <h2 className={`${viewMode === 'mobile' ? 'ios-title-medium' : 'text-[22px]'} ios-text-primary print:text-[18px]`}>
+                  <h2 className="text-[22px] ios-text-primary print:text-[18px]">
                     {personalInfo.title.primary}
                   </h2>
-                  <p className={`${viewMode === 'mobile' ? 'ios-body' : 'text-[17px]'} ios-text-secondary print:text-[14px]`}>
+                  <p className="text-[17px] ios-text-secondary print:text-[14px]">
                     {personalInfo.title.secondary}
                   </p>
-                  <p className={`${viewMode === 'mobile' ? 'ios-body' : 'text-[17px]'} ios-text-secondary print:text-[14px]`}>
+                  <p className="text-[17px] ios-text-secondary print:text-[14px]">
                     {personalInfo.title.tertiary}
                   </p>
                 </div>
-                <p className={`${viewMode === 'mobile' ? 'ios-body-secondary' : 'text-[17px]'} ios-text-secondary leading-relaxed print:text-[14px] print:leading-snug ${
-                  viewMode === 'mobile' ? 'text-center' : ''
-                }`}>
+                <p className="text-[17px] ios-text-secondary leading-relaxed print:text-[14px] print:leading-snug sm:text-left">
                   {personalInfo.summary}
                 </p>
               </div>
@@ -692,9 +649,9 @@ const ProfileView: React.FC = () => {
         </motion.div>
 
         {/* Main Content Grid */}
-        <div className={viewMode === 'desktop' ? 'grid grid-cols-1 md:grid-cols-3 gap-6' : 'ios-stack-large'}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Left Column */}
-          <div className={viewMode === 'desktop' ? 'md:col-span-2 space-y-6' : 'ios-stack-large'}>
+          <div className="md:col-span-2 space-y-6">
             {/* Contact Information */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -702,15 +659,15 @@ const ProfileView: React.FC = () => {
               className="ios-card"
             >
               <div className="ios-card-padding">
-                <h3 className={`${viewMode === 'mobile' ? 'ios-headline' : 'text-[20px] font-semibold'} mb-4 ${viewMode === 'mobile' ? 'text-center' : ''} ios-text-primary`}>
+                <h3 className="text-[20px] font-semibold mb-4 ios-text-primary">
                   Contact Information
                 </h3>
-                <div className={viewMode === 'mobile' ? 'ios-stack-medium items-center' : 'space-y-4'}>
-                  <div className={`flex items-center gap-3 ${viewMode === 'mobile' ? 'justify-center' : ''}`}>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
                     <MapPin className="w-5 h-5 text-gray-400" />
                     <span className="text-[15px] text-gray-600">{personalInfo.contact.location}</span>
                   </div>
-                  <div className={`flex items-center gap-3 ${viewMode === 'mobile' ? 'justify-center' : ''}`}>
+                  <div className="flex items-center gap-3">
                     <Linkedin className="w-5 h-5 text-gray-400" />
                     <a 
                       href={personalInfo.contact.linkedIn}
@@ -721,11 +678,11 @@ const ProfileView: React.FC = () => {
                       LinkedIn Profile
                     </a>
                   </div>
-                  <div className={`flex items-center gap-3 ${viewMode === 'mobile' ? 'justify-center' : ''}`}>
+                  <div className="flex items-center gap-3">
                     <Mail className="w-5 h-5 text-gray-400" />
                     <span className="text-[15px] text-gray-600">{personalInfo.contact.email}</span>
                   </div>
-                  <div className={`flex items-center gap-3 ${viewMode === 'mobile' ? 'justify-center' : ''}`}>
+                  <div className="flex items-center gap-3">
                     <Globe className="w-5 h-5 text-gray-400" />
                     <span className="text-[15px] text-gray-600">
                       {personalInfo.languages.map(lang => 
@@ -744,17 +701,17 @@ const ProfileView: React.FC = () => {
               className="ios-card"
             >
               <div className="ios-card-padding">
-                <h3 className={`${viewMode === 'mobile' ? 'ios-headline' : 'text-[20px] font-semibold'} mb-4 ${viewMode === 'mobile' ? 'text-center' : ''} ios-text-primary`}>
+                <h3 className="text-[20px] font-semibold mb-4 ios-text-primary">
                   Professional Skills
                 </h3>
-                <div className={viewMode === 'mobile' ? 'grid grid-cols-1 gap-6' : 'space-y-4'}>
+                <div className="space-y-4">
                   {Object.entries(skillCategories.professional).map(([category, skills]) => (
-                    <div key={category} className={viewMode === 'mobile' ? 'text-center' : ''}>
-                      <div className={`flex items-center gap-2 mb-2 ${viewMode === 'mobile' ? 'justify-center' : ''}`}>
+                    <div key={category}>
+                      <div className="flex items-center gap-2 mb-2">
                         {getSkillIcon(category)}
                         <span className="text-[13px] font-medium text-gray-700">{category}</span>
                       </div>
-                      <div className={`flex flex-wrap gap-1 ${viewMode === 'mobile' ? 'justify-center' : ''}`}>
+                      <div className="flex flex-wrap gap-1">
                         {skills.map((skill, idx) => (
                           <span
                             key={idx}
@@ -778,14 +735,14 @@ const ProfileView: React.FC = () => {
               className="ios-card"
             >
               <div className="ios-card-padding">
-                <h3 className={`${viewMode === 'mobile' ? 'ios-headline' : 'text-[20px] font-semibold'} mb-4 ${viewMode === 'mobile' ? 'text-center' : ''} ios-text-primary`}>
+                <h3 className="text-[20px] font-semibold mb-4 ios-text-primary">
                   Education & Certifications
                 </h3>
                 
                 {/* Education */}
-                <div className={`mb-6 ${viewMode === 'mobile' ? 'grid grid-cols-1 gap-6' : 'space-y-6'}`}>
+                <div className="space-y-6">
                   {education.map((edu, index) => (
-                    <div key={index} className={`space-y-2 ${viewMode === 'mobile' ? 'text-center' : ''}`}>
+                    <div key={index} className="space-y-2">
                       <h4 className="text-[15px] font-medium text-blue-600">{edu.degree}</h4>
                       <p className="text-[15px] text-gray-900">{edu.school}</p>
                       <p className="text-[13px] text-gray-500 italic">{edu.period}</p>
@@ -798,13 +755,13 @@ const ProfileView: React.FC = () => {
                 </div>
 
                 {/* Certifications */}
-                <div>
+                <div className="mt-6">
                   <h4 className="text-[15px] font-medium text-gray-700 mb-3">Certifications</h4>
-                  <div className={viewMode === 'mobile' ? 'grid grid-cols-1 gap-2' : 'space-y-2'}>
+                  <div className="space-y-2">
                     {certifications.map((cert, index) => (
                       <div
                         key={index}
-                        className={`flex items-center gap-2 text-[13px] text-gray-600 ${viewMode === 'mobile' ? 'justify-center' : ''}`}
+                        className="flex items-center gap-2 text-[13px] text-gray-600"
                       >
                         <Shield className="w-4 h-4 text-blue-500 shrink-0" />
                         <span>{cert}</span>
@@ -817,14 +774,14 @@ const ProfileView: React.FC = () => {
           </div>
 
           {/* Experience Timeline */}
-          <div className={viewMode === 'desktop' ? 'md:col-span-1' : ''}>
+          <div className="md:col-span-1">
             <motion.div
-              initial={{ opacity: 0, x: viewMode === 'desktop' ? 20 : 0, y: viewMode === 'mobile' ? 20 : 0 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
               className="ios-card"
             >
               <div className="ios-card-padding">
-                <div className={`flex items-center ${viewMode === 'mobile' ? 'justify-center' : ''} gap-3 mb-6`}>
+                <div className="flex items-center gap-3 mb-6">
                   <h3 className="text-[20px] font-semibold">Experience Timeline</h3>
                   <button
                     onClick={() => setShowAllExperiences(!showAllExperiences)}
@@ -838,7 +795,7 @@ const ProfileView: React.FC = () => {
                     )}
                   </button>
                 </div>
-                <div className={viewMode === 'mobile' ? 'space-y-8' : 'space-y-6'}>
+                <div className="space-y-8">
                   {displayedExperiences.map((exp, index) => (
                     <motion.div
                       key={index}

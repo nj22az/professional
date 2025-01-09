@@ -139,37 +139,42 @@
     visibility: hidden;
   }
 
-  /* Show only PrintableCV */
+  /* Show only PrintableCV and CoverLetter content */
   .print-content,
   .print-content * {
     visibility: visible !important;
-    position: absolute;
-    left: 0;
-    top: 0;
   }
 
   /* Basic print styles */
   .print-content {
+    position: fixed;
+    left: 0;
+    top: 0;
     width: 100% !important;
+    height: 100% !important;
     margin: 0 !important;
-    padding: 0 !important;
+    padding: 1cm !important;
     background: white !important;
   }
 
   /* Adjust font sizes */
   .print-content h1 {
-    font-size: 20px !important;
+    font-size: 24px !important;
+    margin-bottom: 12px !important;
   }
   .print-content h2 {
-    font-size: 16px !important;
+    font-size: 18px !important;
+    margin-bottom: 8px !important;
   }
   .print-content h3 {
-    font-size: 14px !important;
+    font-size: 16px !important;
+    margin-bottom: 6px !important;
   }
   .print-content p,
   .print-content span,
   .print-content div {
-    font-size: 11px !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
   }
 
   /* Ensure proper grid layout */
@@ -183,6 +188,7 @@
   /* Prevent page breaks within sections */
   .print-content section {
     page-break-inside: avoid !important;
+    margin-bottom: 16px !important;
   }
 
   /* Remove decorative elements */
@@ -192,6 +198,23 @@
     print-color-adjust: exact !important;
     background: white !important;
     box-shadow: none !important;
+  }
+
+  /* Hide modal elements when printing */
+  .fixed,
+  .modal-backdrop {
+    display: none !important;
+  }
+
+  /* Ensure text is black for better printing */
+  .print-content {
+    color: black !important;
+  }
+
+  /* Adjust image sizes for print */
+  .print-content img {
+    max-width: 100px !important;
+    height: auto !important;
   }
 }
 
