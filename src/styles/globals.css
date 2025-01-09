@@ -30,25 +30,100 @@
     @apply active:scale-[0.98];
   }
 
-  .section-title {
-    @apply text-[28px] font-semibold tracking-tight text-gray-900;
+  /* Mobile Typography */
+  .ios-title-large {
+    @apply text-[34px] font-semibold tracking-tight leading-[1.1];
   }
 
-  .section-subtitle {
-    @apply text-[17px] font-normal text-gray-600;
+  .ios-title {
+    @apply text-[28px] font-semibold tracking-tight leading-[1.15];
   }
 
-  .card {
-    @apply bg-white rounded-xl shadow-sm overflow-hidden;
+  .ios-title-medium {
+    @apply text-[22px] font-semibold tracking-tight leading-[1.2];
   }
 
-  .card-padding {
-    @apply p-6;
+  .ios-headline {
+    @apply text-[17px] font-semibold leading-[1.3];
   }
 
-  .timeline-dot {
-    @apply absolute left-0 top-2 -translate-x-1/2;
-    @apply w-2.5 h-2.5 rounded-full bg-blue-600;
+  .ios-body {
+    @apply text-[17px] font-normal leading-[1.4];
+  }
+
+  .ios-body-secondary {
+    @apply text-[15px] font-normal leading-[1.4];
+  }
+
+  .ios-caption {
+    @apply text-[13px] font-medium leading-[1.3];
+  }
+
+  .ios-caption-secondary {
+    @apply text-[11px] font-medium leading-[1.3];
+  }
+
+  /* Mobile Cards */
+  .ios-card {
+    @apply bg-white rounded-2xl shadow-sm overflow-hidden;
+    @apply transition-all duration-200;
+  }
+
+  .ios-card-padding {
+    @apply p-5;
+  }
+
+  /* Mobile Spacing */
+  .ios-stack {
+    @apply flex flex-col;
+  }
+
+  .ios-stack-large {
+    @apply space-y-6;
+  }
+
+  .ios-stack-medium {
+    @apply space-y-4;
+  }
+
+  .ios-stack-small {
+    @apply space-y-2;
+  }
+
+  /* Mobile Colors */
+  .ios-text-primary {
+    @apply text-gray-900;
+  }
+
+  .ios-text-secondary {
+    @apply text-gray-600;
+  }
+
+  .ios-text-tertiary {
+    @apply text-gray-500;
+  }
+
+  .ios-divider {
+    @apply border-gray-200/80;
+  }
+
+  /* Mobile Buttons */
+  .ios-button-large {
+    @apply w-full flex items-center justify-center gap-2;
+    @apply px-4 py-3 rounded-xl;
+    @apply text-[17px] font-medium;
+    @apply transition-all duration-200;
+    @apply active:scale-[0.98];
+  }
+
+  .ios-button-primary {
+    @apply bg-gray-900 text-white;
+    @apply hover:bg-gray-800;
+  }
+
+  .ios-button-secondary {
+    @apply bg-gray-100 text-gray-900;
+    @apply hover:bg-gray-200;
   }
 }
 
