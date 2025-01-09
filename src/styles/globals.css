@@ -1,0 +1,121 @@
+/* 
+ * This file uses Tailwind CSS directives
+ * @tailwind and @apply are valid in this context
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --system-font: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+      "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  html {
+    font-family: var(--system-font);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .ios-button {
+    @apply inline-flex items-center gap-2 px-4 py-1.5;
+    @apply text-[13px] font-medium;
+    @apply bg-gray-900 hover:bg-gray-800;
+    @apply text-white rounded-full;
+    @apply shadow-sm transition-all duration-200;
+    @apply active:scale-[0.98];
+  }
+
+  .section-title {
+    @apply text-[28px] font-semibold tracking-tight text-gray-900;
+  }
+
+  .section-subtitle {
+    @apply text-[17px] font-normal text-gray-600;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-sm overflow-hidden;
+  }
+
+  .card-padding {
+    @apply p-6;
+  }
+
+  .timeline-dot {
+    @apply absolute left-0 top-2 -translate-x-1/2;
+    @apply w-2.5 h-2.5 rounded-full bg-blue-600;
+  }
+}
+
+@media print {
+  /* Reset page settings */
+  @page {
+    margin: 1cm;
+    size: A4 portrait;
+  }
+
+  /* Hide everything initially */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Show only PrintableCV */
+  .print-content,
+  .print-content * {
+    visibility: visible !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  /* Basic print styles */
+  .print-content {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+  }
+
+  /* Adjust font sizes */
+  .print-content h1 {
+    font-size: 20px !important;
+  }
+  .print-content h2 {
+    font-size: 16px !important;
+  }
+  .print-content h3 {
+    font-size: 14px !important;
+  }
+  .print-content p,
+  .print-content span,
+  .print-content div {
+    font-size: 11px !important;
+  }
+
+  /* Ensure proper grid layout */
+  .print-content .grid {
+    display: grid !important;
+  }
+  .print-content .grid-cols-2 {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* Prevent page breaks within sections */
+  .print-content section {
+    page-break-inside: avoid !important;
+  }
+
+  /* Remove decorative elements */
+  .print-content * {
+    color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    background: white !important;
+    box-shadow: none !important;
+  }
+}
