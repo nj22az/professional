@@ -572,7 +572,7 @@ const ProfileView: React.FC = () => {
           <div className={viewMode === 'mobile' ? 'ios-card-padding' : 'p-8 print:p-4'}>
             <div className={`ios-stack ${viewMode === 'desktop' ? 'sm:flex-row gap-8 items-start' : 'items-center'} print:gap-4`}>
               {/* Profile Image and Buttons */}
-              <div className={`ios-stack ${viewMode === 'desktop' ? 'sm:items-start' : 'items-center'} gap-4 ${viewMode === 'desktop' ? 'sm:w-auto' : 'w-full max-w-[280px]'}`}>
+              <div className={`ios-stack ${viewMode === 'desktop' ? 'sm:items-center' : 'items-center'} gap-4 ${viewMode === 'desktop' ? 'sm:w-[280px]' : 'w-full max-w-[280px]'}`}>
                 <motion.div
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
@@ -588,8 +588,8 @@ const ProfileView: React.FC = () => {
                     draggable={false}
                   />
                 </motion.div>
-                <div className={`ios-stack ${viewMode === 'desktop' ? 'sm:w-[180px]' : 'w-full max-w-[280px]'} gap-2`}>
-                  <div className="flex items-center gap-2">
+                <div className={`ios-stack ${viewMode === 'desktop' ? 'w-full' : 'w-full max-w-[280px]'} gap-2`}>
+                  <div className="flex items-center gap-2 justify-center">
                     <motion.button
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
