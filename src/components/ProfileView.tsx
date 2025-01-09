@@ -596,9 +596,9 @@ const ProfileView: React.FC = () => {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => setShowCVModal(true)}
-                      className="ios-button-large ios-button-primary"
+                      className={`ios-button-large ios-button-primary ${viewMode === 'desktop' ? 'h-9 text-[13px] px-4' : ''}`}
                     >
-                      <FileText className="w-4 h-4" />
+                      <FileText className={`${viewMode === 'desktop' ? 'w-3.5 h-3.5' : 'w-4 h-4'}`} />
                       CV
                     </motion.button>
                     <motion.button
@@ -607,9 +607,9 @@ const ProfileView: React.FC = () => {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => setShowCoverLetterModal(true)}
-                      className="ios-button-large ios-button-secondary"
+                      className={`ios-button-large ios-button-secondary ${viewMode === 'desktop' ? 'h-9 text-[13px] px-4' : ''}`}
                     >
-                      <FileText className="w-4 h-4" />
+                      <FileText className={`${viewMode === 'desktop' ? 'w-3.5 h-3.5' : 'w-4 h-4'}`} />
                       Letter
                     </motion.button>
                   </div>
@@ -619,14 +619,14 @@ const ProfileView: React.FC = () => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={downloadTimelineCSV}
-                    className="ios-button-large bg-blue-50 text-blue-600 hover:bg-blue-100"
+                    className={`ios-button-large bg-blue-50 text-blue-600 hover:bg-blue-100 ${viewMode === 'desktop' ? 'h-9 text-[13px] px-4' : ''}`}
                   >
-                    <Download className="w-4 h-4" />
+                    <Download className={`${viewMode === 'desktop' ? 'w-3.5 h-3.5' : 'w-4 h-4'}`} />
                     Timeline
                   </motion.button>
                   
                   {/* View Toggle Buttons */}
-                  <div className="flex items-center justify-center gap-4 mt-2">
+                  <div className="flex items-center justify-center gap-3 mt-2">
                     <div className="flex flex-col items-center">
                       <motion.button
                         initial={{ opacity: 0 }}
@@ -634,13 +634,13 @@ const ProfileView: React.FC = () => {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         onClick={() => setViewMode('mobile')}
-                        className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
+                        className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
                           viewMode === 'mobile' 
                             ? 'bg-gray-900 text-white' 
                             : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                         }`}
                       >
-                        <Smartphone className="w-5 h-5" />
+                        <Smartphone className="w-4 h-4" />
                       </motion.button>
                       <span className="ios-caption-secondary mt-1">Mobile</span>
                     </div>
@@ -651,13 +651,13 @@ const ProfileView: React.FC = () => {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         onClick={() => setViewMode('desktop')}
-                        className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
+                        className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
                           viewMode === 'desktop' 
                             ? 'bg-gray-900 text-white' 
                             : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                         }`}
                       >
-                        <Monitor className="w-5 h-5" />
+                        <Monitor className="w-4 h-4" />
                       </motion.button>
                       <span className="ios-caption-secondary mt-1">Desktop</span>
                     </div>
