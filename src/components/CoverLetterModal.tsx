@@ -78,8 +78,15 @@ const CoverLetterModal: React.FC<CoverLetterModalProps> = ({ isOpen, onClose }) 
               </div>
 
               {/* Cover Letter Content */}
-              <div ref={printableRef} className="p-6 bg-white">
-                <CoverLetter />
+              <div className="hidden md:block">
+                <div ref={printableRef} className="p-6 bg-white">
+                  <CoverLetter />
+                </div>
+              </div>
+
+              {/* Mobile Download Message */}
+              <div className="block md:hidden p-6 text-center">
+                <p className="text-gray-600 mb-4">The Cover Letter preview is optimized for desktop viewing. Click the Download PDF button above to view the full Cover Letter on your device.</p>
               </div>
             </motion.div>
           </div>

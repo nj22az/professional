@@ -78,8 +78,15 @@ const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
               </div>
 
               {/* CV Content */}
-              <div ref={printableRef} className="p-6 bg-white">
-                <PrintableCV />
+              <div className="hidden md:block">
+                <div ref={printableRef} className="p-6 bg-white">
+                  <PrintableCV />
+                </div>
+              </div>
+
+              {/* Mobile Download Message */}
+              <div className="block md:hidden p-6 text-center">
+                <p className="text-gray-600 mb-4">The CV preview is optimized for desktop viewing. Click the Download PDF button above to view the full CV on your device.</p>
               </div>
             </motion.div>
           </div>
