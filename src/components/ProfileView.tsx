@@ -588,17 +588,17 @@ const ProfileView: React.FC = () => {
                     draggable={false}
                   />
                 </motion.div>
-                <div className={`ios-stack ${viewMode === 'desktop' ? 'w-full' : 'w-full max-w-[280px]'} gap-2`}>
-                  <div className="flex items-center gap-2 justify-center">
+                <div className="w-[120px] flex flex-col gap-2">
+                  <div className="flex flex-col gap-2">
                     <motion.button
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => setShowCVModal(true)}
-                      className={`ios-button-large ios-button-primary ${viewMode === 'desktop' ? 'h-9 text-[13px] px-4' : ''}`}
+                      className="ios-button-large ios-button-primary h-8 text-[13px]"
                     >
-                      <FileText className={`${viewMode === 'desktop' ? 'w-3.5 h-3.5' : 'w-4 h-4'}`} />
+                      <FileText className="w-3.5 h-3.5" />
                       CV
                     </motion.button>
                     <motion.button
@@ -607,26 +607,26 @@ const ProfileView: React.FC = () => {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => setShowCoverLetterModal(true)}
-                      className={`ios-button-large ios-button-secondary ${viewMode === 'desktop' ? 'h-9 text-[13px] px-4' : ''}`}
+                      className="ios-button-large ios-button-secondary h-8 text-[13px]"
                     >
-                      <FileText className={`${viewMode === 'desktop' ? 'w-3.5 h-3.5' : 'w-4 h-4'}`} />
+                      <FileText className="w-3.5 h-3.5" />
                       Letter
                     </motion.button>
+                    <motion.button
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={downloadTimelineCSV}
+                      className="ios-button-large bg-blue-50 text-blue-600 hover:bg-blue-100 h-8 text-[13px]"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      Timeline
+                    </motion.button>
                   </div>
-                  <motion.button
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={downloadTimelineCSV}
-                    className={`ios-button-large bg-blue-50 text-blue-600 hover:bg-blue-100 ${viewMode === 'desktop' ? 'h-9 text-[13px] px-4' : ''}`}
-                  >
-                    <Download className={`${viewMode === 'desktop' ? 'w-3.5 h-3.5' : 'w-4 h-4'}`} />
-                    Timeline
-                  </motion.button>
                   
                   {/* View Toggle Buttons */}
-                  <div className="flex items-center justify-center gap-3 mt-2">
+                  <div className="flex items-center justify-center gap-3 mt-1">
                     <div className="flex flex-col items-center">
                       <motion.button
                         initial={{ opacity: 0 }}
@@ -634,13 +634,13 @@ const ProfileView: React.FC = () => {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         onClick={() => setViewMode('mobile')}
-                        className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
+                        className={`w-7 h-7 rounded-full flex items-center justify-center transition-all ${
                           viewMode === 'mobile' 
                             ? 'bg-gray-900 text-white' 
                             : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                         }`}
                       >
-                        <Smartphone className="w-4 h-4" />
+                        <Smartphone className="w-3.5 h-3.5" />
                       </motion.button>
                       <span className="ios-caption-secondary mt-1">Mobile</span>
                     </div>
@@ -651,13 +651,13 @@ const ProfileView: React.FC = () => {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         onClick={() => setViewMode('desktop')}
-                        className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
+                        className={`w-7 h-7 rounded-full flex items-center justify-center transition-all ${
                           viewMode === 'desktop' 
                             ? 'bg-gray-900 text-white' 
                             : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                         }`}
                       >
-                        <Monitor className="w-4 h-4" />
+                        <Monitor className="w-3.5 h-3.5" />
                       </motion.button>
                       <span className="ios-caption-secondary mt-1">Desktop</span>
                     </div>
