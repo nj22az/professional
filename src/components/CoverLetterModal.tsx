@@ -55,7 +55,7 @@ const CoverLetterModal: React.FC<CoverLetterModalProps> = ({ isOpen, onClose }) 
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative bg-[#f5f5f7] rounded-2xl shadow-xl max-w-4xl w-full overflow-hidden"
+              className="relative bg-[#f5f5f7] rounded-2xl shadow-xl max-w-4xl w-full"
             >
               {/* Modal Header */}
               <div className="flex justify-between items-center p-4 border-b border-gray-200">
@@ -77,24 +77,16 @@ const CoverLetterModal: React.FC<CoverLetterModalProps> = ({ isOpen, onClose }) 
                 </div>
               </div>
 
-              {/* Cover Letter Content with scaling container */}
-              <div className="relative w-full" style={{ height: 'calc(100vh - 150px)' }}>
-                <div className="absolute inset-0 overflow-auto touch-pan-y touch-pinch-zoom">
-                  <div className="min-h-full flex items-center justify-center p-6">
-                    <div 
-                      ref={printableRef}
-                      className="bg-white shadow-lg origin-top"
-                      style={{
-                        width: '210mm',
-                        height: '297mm',
-                        transform: 'scale(var(--scale-factor, 0.7))',
-                        transformOrigin: 'top center'
-                      }}
-                    >
-                      <CoverLetter />
-                    </div>
-                  </div>
+              {/* Cover Letter Content */}
+              <div className="hidden md:block">
+                <div ref={printableRef} className="p-6 bg-white">
+                  <CoverLetter />
                 </div>
+              </div>
+
+              {/* Mobile Download Message */}
+              <div className="block md:hidden p-6 text-center">
+                <p className="text-gray-600 mb-4">The Cover Letter preview is optimized for desktop viewing. Click the Download PDF button above to view the full Cover Letter on your device.</p>
               </div>
             </motion.div>
           </div>
