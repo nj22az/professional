@@ -194,3 +194,21 @@
     box-shadow: none !important;
   }
 }
+
+@layer utilities {
+  .touch-pinch-zoom {
+    touch-action: pinch-zoom;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --scale-factor: 0.5;
+  }
+}
+
+@media (min-width: 769px) {
+  :root {
+    --scale-factor: 0.7;
+  }
+}

@@ -55,7 +55,7 @@ const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative bg-[#f5f5f7] rounded-2xl shadow-xl max-w-5xl w-full"
+              className="relative bg-[#f5f5f7] rounded-2xl shadow-xl max-w-5xl w-full overflow-hidden"
             >
               {/* Modal Header */}
               <div className="flex justify-between items-center p-4 border-b border-gray-200">
@@ -77,9 +77,24 @@ const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
                 </div>
               </div>
 
-              {/* CV Content */}
-              <div ref={printableRef} className="p-6 bg-white">
-                <PrintableCV />
+              {/* CV Content with scaling container */}
+              <div className="relative w-full" style={{ height: 'calc(100vh - 150px)' }}>
+                <div className="absolute inset-0 overflow-auto touch-pan-y touch-pinch-zoom">
+                  <div className="min-h-full flex items-center justify-center p-6">
+                    <div 
+                      ref={printableRef}
+                      className="bg-white shadow-lg origin-top"
+                      style={{
+                        width: '210mm',
+                        height: '297mm',
+                        transform: 'scale(var(--scale-factor, 0.7))',
+                        transformOrigin: 'top center'
+                      }}
+                    >
+                      <PrintableCV />
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
