@@ -390,7 +390,12 @@ const UnifiedSkillSummary: React.FC<UnifiedSkillSummaryProps> = ({ experiences, 
   );
 };
 
-const ProfileView: React.FC = () => {
+interface ProfileViewProps {
+  onDownloadCV: () => void;
+  onDownloadCoverLetter: () => void;
+}
+
+const ProfileView: React.FC<ProfileViewProps> = ({ onDownloadCV, onDownloadCoverLetter }) => {
   const { personalInfo, experiences, skills, education, certifications } = useCareer();
   const [showAllExperiences, setShowAllExperiences] = useState(false);
   const [showCVModal, setShowCVModal] = useState(false);
@@ -586,41 +591,17 @@ const ProfileView: React.FC = () => {
                   />
                 </motion.div>
                 <div className="w-[160px] flex flex-col gap-2">
-                  <div className="flex flex-col gap-2">
-                    <motion.button
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      onClick={() => setShowCVModal(true)}
-                      className="ios-button-large ios-button-primary h-8 text-[13px]"
-                    >
-                      <FileText className="w-3.5 h-3.5" />
-                      CV
-                    </motion.button>
-                    <motion.button
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      onClick={() => setShowCoverLetterModal(true)}
-                      className="ios-button-large ios-button-secondary h-8 text-[13px]"
-                    >
-                      <FileText className="w-3.5 h-3.5" />
-                      Letter
-                    </motion.button>
-                    <motion.button
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      onClick={downloadTimelineCSV}
-                      className="ios-button-large bg-blue-50 text-blue-600 hover:bg-blue-100 h-8 text-[13px]"
-                    >
-                      <Download className="w-3.5 h-3.5" />
-                      Timeline
-                    </motion.button>
-                  </div>
+                  <motion.button
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={downloadTimelineCSV}
+                    className="ios-button-large bg-blue-50 text-blue-600 hover:bg-blue-100 h-8 text-[13px]"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                    Timeline
+                  </motion.button>
                 </div>
               </div>
 
