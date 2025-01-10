@@ -57,148 +57,148 @@ const skillCategories = {
 };
 
 const categoryIcons: Record<string, JSX.Element> = {
-  'Engineering': <Wrench />,
-  'Programming': <Code />,
-  'Testing': <Gauge />,
-  'Data': <BarChart />,
-  'Safety': <Shield />,
-  'Management': <Briefcase />,
-  'Communication': <MessageSquare />,
-  'Software': <Laptop />,
-  'Technical': <Settings />,
-  'Leadership': <Users />
+  'Engineering': <Wrench className="text-[#FF9500]" />,
+  'Programming': <Code className="text-[#32D74B]" />,
+  'Testing': <Gauge className="text-[#64D2FF]" />,
+  'Data': <BarChart className="text-[#BF5AF2]" />,
+  'Safety': <Shield className="text-[#FF453A]" />,
+  'Management': <Briefcase className="text-[#0A84FF]" />,
+  'Communication': <MessageSquare className="text-[#30D158]" />,
+  'Software': <Laptop className="text-[#32D74B]" />,
+  'Technical': <Settings className="text-[#FF9F0A]" />,
+  'Leadership': <Users className="text-[#5E5CE6]" />
 };
 
 const getJobIcon = (company: string, title: string) => {
   if (['Stena RoRo', 'Stena Baltic A/S', 'Destination Gotland', 'Finnlines', 'Teekay', 'Noble Caledonia', 'Sirius Ship Management S.r.l.', 'Terntank Rederi AS'].includes(company)) {
-    return <Ship className="w-5 h-5 text-blue-500" />;
+    return <Ship className="w-5 h-5 text-[#0A84FF]" />;
   }
   if (company === 'Instron') {
-    return <Car className="w-5 h-5 text-blue-500" />;
+    return <Car className="w-5 h-5 text-[#FF9500]" />;
   }
   if (company === 'AH Automation') {
-    return <Binary className="w-5 h-5 text-blue-500" />;
+    return <Binary className="w-5 h-5 text-[#32D74B]" />;
   }
   if (company === 'Siemens Energy') {
-    return <Plane className="w-5 h-5 text-blue-500" />;
+    return <Plane className="w-5 h-5 text-[#64D2FF]" />;
   }
   if (company === 'DEKRA Industrial') {
-    return <Calculator className="w-5 h-5 text-blue-500" />;
+    return <Calculator className="w-5 h-5 text-[#BF5AF2]" />;
   }
   if (company === 'Trafikverket') {
-    return <Anchor className="w-5 h-5 text-blue-500" />;
+    return <Anchor className="w-5 h-5 text-[#0A84FF]" />;
   }
   if (company === 'Persson Innovation AB') {
-    return <Crown className="w-5 h-5 text-blue-500" />;
+    return <Crown className="w-5 h-5 text-[#FFD60A]" />;
   }
   if (company === 'Örebro Kommun') {
-    return <Factory className="w-5 h-5 text-blue-500" />;
+    return <Factory className="w-5 h-5 text-[#FF9500]" />;
   }
   if (company === 'Various Companies' && title === 'Warehouse Worker') {
-    return <Package className="w-5 h-5 text-blue-500" />;
+    return <Package className="w-5 h-5 text-[#FF9F0A]" />;
   }
   if (company === 'Various Schools') {
-    return <GraduationCap className="w-5 h-5 text-blue-500" />;
+    return <GraduationCap className="w-5 h-5 text-[#5E5CE6]" />;
   }
   if (company === 'Royal Swedish Navy') {
-    return <Shield className="w-5 h-5 text-blue-500" />;
+    return <Shield className="w-5 h-5 text-[#FF453A]" />;
   }
-  return <Wrench className="w-5 h-5 text-blue-500" />;
+  return <Wrench className="w-5 h-5 text-[#FF9500]" />;
 };
 
 const getSkillIcon = (category: string) => {
   switch (category) {
     case 'Engineering & Systems':
-      return <Settings className="w-4 h-4 text-blue-500" />;
+      return <Settings className="w-4 h-4 text-[#FF9500]" />;
     case 'Software & Programming':
-      return <Code className="w-4 h-4 text-blue-500" />;
+      return <Code className="w-4 h-4 text-[#32D74B]" />;
     case 'Testing & Quality':
-      return <Target className="w-4 h-4 text-blue-500" />;
+      return <Target className="w-4 h-4 text-[#64D2FF]" />;
     case 'Project Management':
-      return <GanttChart className="w-4 h-4 text-blue-500" />;
+      return <GanttChart className="w-4 h-4 text-[#0A84FF]" />;
     case 'Communication':
-      return <MessageSquare className="w-4 h-4 text-blue-500" />;
+      return <MessageSquare className="w-4 h-4 text-[#30D158]" />;
     default:
-      return <Wrench className="w-4 h-4 text-blue-500" />;
+      return <Wrench className="w-4 h-4 text-[#FF9500]" />;
   }
 };
 
 const getResponsibilityIcon = (responsibility: string) => {
   const icons: Record<string, JSX.Element> = {
     // Engineering & Systems
-    'Testing Systems Installation': <Wrench className="w-3 h-3" />,
-    'System Installation': <Wrench className="w-3 h-3" />,
-    'System Integration': <Network className="w-3 h-3" />,
-    'System Maintenance': <Wrench className="w-3 h-3" />,
-    'System Repairs': <Wrench className="w-3 h-3" />,
-    'System Operations': <Settings className="w-3 h-3" />,
-    'System Optimization': <Settings className="w-3 h-3" />,
-    'Equipment Repair': <Wrench className="w-3 h-3" />,
-    'Equipment Repairs': <Wrench className="w-3 h-3" />,
-    'Equipment Handling': <Wrench className="w-3 h-3" />,
-    'Equipment Assessment': <Gauge className="w-3 h-3" />,
-    'Equipment Overhaul': <Wrench className="w-3 h-3" />,
-    'Equipment Maintenance': <Wrench className="w-3 h-3" />,
-    'Equipment Calibration': <Gauge className="w-3 h-3" />,
-    'Engine Operations': <Settings className="w-3 h-3" />,
-    'Engine Systems': <Settings className="w-3 h-3" />,
-    'Machinery Operations': <Settings className="w-3 h-3" />,
-    'Gas Turbine Systems': <Settings className="w-3 h-3" />,
-    'Dynamic Positioning': <Target className="w-3 h-3" />,
-    'Emergency Systems': <Shield className="w-3 h-3" />,
-    'Automation Systems': <Cpu className="w-3 h-3" />,
-    'Automation Design': <Binary className="w-3 h-3" />,
-    'Technical Operations': <Settings className="w-3 h-3" />,
+    'Testing Systems Installation': <Wrench className="w-3 h-3 text-[#FF9500]" />,
+    'System Installation': <Wrench className="w-3 h-3 text-[#FF9500]" />,
+    'System Integration': <Network className="w-3 h-3 text-[#32D74B]" />,
+    'System Maintenance': <Wrench className="w-3 h-3 text-[#FF9500]" />,
+    'System Repairs': <Wrench className="w-3 h-3 text-[#FF9500]" />,
+    'System Operations': <Settings className="w-3 h-3 text-[#FF9500]" />,
+    'System Optimization': <Settings className="w-3 h-3 text-[#FF9500]" />,
+    'Equipment Repair': <Wrench className="w-3 h-3 text-[#FF9500]" />,
+    'Equipment Repairs': <Wrench className="w-3 h-3 text-[#FF9500]" />,
+    'Equipment Handling': <Wrench className="w-3 h-3 text-[#FF9500]" />,
+    'Equipment Assessment': <Gauge className="w-3 h-3 text-[#64D2FF]" />,
+    'Equipment Overhaul': <Wrench className="w-3 h-3 text-[#FF9500]" />,
+    'Equipment Maintenance': <Wrench className="w-3 h-3 text-[#FF9500]" />,
+    'Equipment Calibration': <Gauge className="w-3 h-3 text-[#64D2FF]" />,
+    'Engine Operations': <Settings className="w-3 h-3 text-[#FF9500]" />,
+    'Engine Systems': <Settings className="w-3 h-3 text-[#FF9500]" />,
+    'Machinery Operations': <Settings className="w-3 h-3 text-[#FF9500]" />,
+    'Gas Turbine Systems': <Settings className="w-3 h-3 text-[#FF9500]" />,
+    'Dynamic Positioning': <Target className="w-3 h-3 text-[#64D2FF]" />,
+    'Emergency Systems': <Shield className="w-3 h-3 text-[#FF453A]" />,
+    'Automation Systems': <Cpu className="w-3 h-3 text-[#32D74B]" />,
+    'Automation Design': <Binary className="w-3 h-3 text-[#32D74B]" />,
+    'Technical Operations': <Settings className="w-3 h-3 text-[#FF9500]" />,
 
     // Software & Programming
-    'IQOQ & Calibration': <Gauge className="w-3 h-3" />,
-    'Bluehill Software': <Code className="w-3 h-3" />,
-    'Software Configuration': <Code className="w-3 h-3" />,
-    'PLC Programming': <Cpu className="w-3 h-3" />,
-    'HMI Development': <Settings className="w-3 h-3" />,
+    'IQOQ & Calibration': <Gauge className="w-3 h-3 text-[#64D2FF]" />,
+    'Bluehill Software': <Code className="w-3 h-3 text-[#32D74B]" />,
+    'Software Configuration': <Code className="w-3 h-3 text-[#32D74B]" />,
+    'PLC Programming': <Cpu className="w-3 h-3 text-[#32D74B]" />,
+    'HMI Development': <Settings className="w-3 h-3 text-[#32D74B]" />,
 
     // Management & Leadership
-    'Project Management': <Briefcase className="w-3 h-3" />,
-    'Team Leadership': <Users className="w-3 h-3" />,
-    'Technical Leadership': <Users className="w-3 h-3" />,
-    'Team Supervision': <Users className="w-3 h-3" />,
-    'Team Coordination': <Users className="w-3 h-3" />,
-    'Resource Planning': <GanttChart className="w-3 h-3" />,
-    'Process Optimization': <Settings className="w-3 h-3" />,
-    'Maintenance Planning': <GanttChart className="w-3 h-3" />,
-    'Technical Planning': <GanttChart className="w-3 h-3" />,
-    'Logistics Operations': <GanttChart className="w-3 h-3" />,
-    'Inventory Management': <Database className="w-3 h-3" />,
-    'International Operations': <Globe2 className="w-3 h-3" />,
+    'Project Management': <Briefcase className="w-3 h-3 text-[#0A84FF]" />,
+    'Team Leadership': <Users className="w-3 h-3 text-[#5E5CE6]" />,
+    'Technical Leadership': <Users className="w-3 h-3 text-[#5E5CE6]" />,
+    'Team Supervision': <Users className="w-3 h-3 text-[#5E5CE6]" />,
+    'Team Coordination': <Users className="w-3 h-3 text-[#5E5CE6]" />,
+    'Resource Planning': <GanttChart className="w-3 h-3 text-[#0A84FF]" />,
+    'Process Optimization': <Settings className="w-3 h-3 text-[#FF9500]" />,
+    'Maintenance Planning': <GanttChart className="w-3 h-3 text-[#0A84FF]" />,
+    'Technical Planning': <GanttChart className="w-3 h-3 text-[#0A84FF]" />,
+    'Logistics Operations': <GanttChart className="w-3 h-3 text-[#0A84FF]" />,
+    'Inventory Management': <Database className="w-3 h-3 text-[#BF5AF2]" />,
+    'International Operations': <Globe2 className="w-3 h-3 text-[#0A84FF]" />,
 
     // Quality & Safety
-    'Quality Control': <Target className="w-3 h-3" />,
-    'Quality Assurance': <Target className="w-3 h-3" />,
-    'Quality Standards': <Target className="w-3 h-3" />,
-    'Safety Protocols': <Shield className="w-3 h-3" />,
-    'Safety Compliance': <Shield className="w-3 h-3" />,
-    'Safety Standards': <Shield className="w-3 h-3" />,
-    'Emergency Response': <Shield className="w-3 h-3" />,
-    'Industrial Inspections': <Target className="w-3 h-3" />,
-    'Regulatory Standards': <ClipboardList className="w-3 h-3" />,
+    'Quality Control': <Target className="w-3 h-3 text-[#64D2FF]" />,
+    'Quality Assurance': <Target className="w-3 h-3 text-[#64D2FF]" />,
+    'Quality Standards': <Target className="w-3 h-3 text-[#64D2FF]" />,
+    'Safety Protocols': <Shield className="w-3 h-3 text-[#FF453A]" />,
+    'Safety Compliance': <Shield className="w-3 h-3 text-[#FF453A]" />,
+    'Safety Standards': <Shield className="w-3 h-3 text-[#FF453A]" />,
+    'Emergency Response': <Shield className="w-3 h-3 text-[#FF453A]" />,
+    'Industrial Inspections': <Target className="w-3 h-3 text-[#64D2FF]" />,
+    'Regulatory Standards': <ClipboardList className="w-3 h-3 text-[#64D2FF]" />,
 
     // Documentation & Analysis
-    'Technical Documentation': <FileText className="w-3 h-3" />,
-    'Documentation': <FileText className="w-3 h-3" />,
-    'Data Analysis': <BarChart className="w-3 h-3" />,
-    'Technical Training': <Users className="w-3 h-3" />,
-    'Client Training': <Users className="w-3 h-3" />,
-    'Technical Support': <HeartHandshake className="w-3 h-3" />,
-    'Client Relations': <HeartHandshake className="w-3 h-3" />,
+    'Technical Documentation': <FileText className="w-3 h-3 text-[#BF5AF2]" />,
+    'Documentation': <FileText className="w-3 h-3 text-[#BF5AF2]" />,
+    'Data Analysis': <BarChart className="w-3 h-3 text-[#BF5AF2]" />,
+    'Technical Training': <Users className="w-3 h-3 text-[#5E5CE6]" />,
+    'Client Training': <Users className="w-3 h-3 text-[#5E5CE6]" />,
+    'Technical Support': <HeartHandshake className="w-3 h-3 text-[#30D158]" />,
+    'Client Relations': <HeartHandshake className="w-3 h-3 text-[#30D158]" />,
 
     // Maritime & Military
-    'Military Operations': <Shield className="w-3 h-3" />,
-    'Military Training': <Shield className="w-3 h-3" />,
-    'Maritime Operations': <Ship className="w-3 h-3" />,
-    'Cargo Systems': <Ship className="w-3 h-3" />,
-    'Preventive Maintenance': <Wrench className="w-3 h-3" />,
-    'Basic Maintenance': <Wrench className="w-3 h-3" />,
-    'Practical Training': <Users className="w-3 h-3" />
+    'Military Operations': <Shield className="w-3 h-3 text-[#FF453A]" />,
+    'Military Training': <Shield className="w-3 h-3 text-[#FF453A]" />,
+    'Maritime Operations': <Ship className="w-3 h-3 text-[#0A84FF]" />,
+    'Cargo Systems': <Ship className="w-3 h-3 text-[#0A84FF]" />,
+    'Preventive Maintenance': <Wrench className="w-3 h-3 text-[#FF9500]" />,
+    'Basic Maintenance': <Wrench className="w-3 h-3 text-[#FF9500]" />,
+    'Practical Training': <Users className="w-3 h-3 text-[#5E5CE6]" />
   };
   return icons[responsibility] || null;
 };
@@ -332,8 +332,8 @@ const UnifiedSkillSummary: React.FC<UnifiedSkillSummaryProps> = ({ experiences, 
           transition={{ delay: 0.1 }}
           className="flex flex-col items-center"
         >
-          <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-2">
-            <Ship className="w-6 h-6 text-blue-600" />
+          <div className="w-12 h-12 rounded-full bg-[#0A84FF]/10 flex items-center justify-center mb-2">
+            <Ship className="w-6 h-6 text-[#0A84FF]" />
           </div>
           <span className="text-[13px] font-medium text-gray-700 text-center">Marine</span>
         </motion.div>
@@ -344,8 +344,8 @@ const UnifiedSkillSummary: React.FC<UnifiedSkillSummaryProps> = ({ experiences, 
           transition={{ delay: 0.2 }}
           className="flex flex-col items-center"
         >
-          <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-2">
-            <Gauge className="w-6 h-6 text-blue-600" />
+          <div className="w-12 h-12 rounded-full bg-[#64D2FF]/10 flex items-center justify-center mb-2">
+            <Gauge className="w-6 h-6 text-[#64D2FF]" />
           </div>
           <span className="text-[13px] font-medium text-gray-700 text-center">Calibration</span>
         </motion.div>
@@ -356,8 +356,8 @@ const UnifiedSkillSummary: React.FC<UnifiedSkillSummaryProps> = ({ experiences, 
           transition={{ delay: 0.3 }}
           className="flex flex-col items-center"
         >
-          <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-2">
-            <Cpu className="w-6 h-6 text-blue-600" />
+          <div className="w-12 h-12 rounded-full bg-[#32D74B]/10 flex items-center justify-center mb-2">
+            <Cpu className="w-6 h-6 text-[#32D74B]" />
           </div>
           <span className="text-[13px] font-medium text-gray-700 text-center">Automation</span>
         </motion.div>
@@ -368,8 +368,8 @@ const UnifiedSkillSummary: React.FC<UnifiedSkillSummaryProps> = ({ experiences, 
           transition={{ delay: 0.4 }}
           className="flex flex-col items-center"
         >
-          <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-2">
-            <Globe2 className="w-6 h-6 text-blue-600" />
+          <div className="w-12 h-12 rounded-full bg-[#0A84FF]/10 flex items-center justify-center mb-2">
+            <Globe2 className="w-6 h-6 text-[#0A84FF]" />
           </div>
           <span className="text-[13px] font-medium text-gray-700 text-center">Global Operations</span>
         </motion.div>
@@ -380,8 +380,8 @@ const UnifiedSkillSummary: React.FC<UnifiedSkillSummaryProps> = ({ experiences, 
           transition={{ delay: 0.5 }}
           className="flex flex-col items-center"
         >
-          <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-2">
-            <Users className="w-6 h-6 text-blue-600" />
+          <div className="w-12 h-12 rounded-full bg-[#5E5CE6]/10 flex items-center justify-center mb-2">
+            <Users className="w-6 h-6 text-[#5E5CE6]" />
           </div>
           <span className="text-[13px] font-medium text-gray-700 text-center">Technical Leadership</span>
         </motion.div>
@@ -562,6 +562,51 @@ const ProfileView: React.FC<ProfileViewProps> = ({ onDownloadCV, onDownloadCover
     document.body.removeChild(link);
   };
 
+  const getCertificationIcon = (cert: string): { icon: JSX.Element; category: string } => {
+    // Marine & Engineering (including maritime safety certifications)
+    if (cert.includes('EOOW') || 
+        cert.includes('Marine Engineering') ||
+        cert.includes('STCW') ||
+        cert.includes('Firefighting') ||
+        cert.includes('Medical First Aid') ||
+        cert.includes('Crowd & Crisis Management')) {
+      return { 
+        icon: <Ship className="w-4 h-4 text-[#0A84FF]" />, // Blue for marine
+        category: 'Marine Engineering'
+      };
+    }
+    
+    // Power Systems
+    if (cert.includes('Gas Turbine') || cert.includes('High Voltage')) {
+      return { 
+        icon: <Cpu className="w-4 h-4 text-[#FF9500]" />, // Orange for power systems
+        category: 'Power Systems'
+      };
+    }
+    
+    // Automation & Programming
+    if (cert.includes('PLC') || cert.includes('Programming')) {
+      return { 
+        icon: <Code className="w-4 h-4 text-[#32D74B]" />, // Green for programming
+        category: 'Automation'
+      };
+    }
+    
+    // Testing & Calibration
+    if (cert.includes('IQOQ') || cert.includes('Calibration')) {
+      return { 
+        icon: <Gauge className="w-4 h-4 text-[#64D2FF]" />, // Light blue for testing
+        category: 'Testing & Calibration'
+      };
+    }
+    
+    // Default
+    return { 
+      icon: <Ship className="w-4 h-4 text-[#0A84FF]" />,
+      category: 'Other'
+    };
+  };
+
   return (
     <div className="min-h-screen bg-[#f5f5f7] print:bg-white print:min-h-0">
       <div className="max-w-5xl mx-auto px-4 py-8 print:p-6 print:max-w-none">
@@ -738,14 +783,28 @@ const ProfileView: React.FC<ProfileViewProps> = ({ onDownloadCV, onDownloadCover
                 {/* Certifications */}
                 <div className="mt-6">
                   <h4 className="text-[15px] font-medium text-gray-700 mb-3">Certifications</h4>
-                  <div className="space-y-2">
-                    {certifications.map((cert, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center gap-2 text-[13px] text-gray-600"
-                      >
-                        <Shield className="w-4 h-4 text-blue-500 shrink-0" />
-                        <span>{cert}</span>
+                  <div className="space-y-4">
+                    {Object.entries(
+                      certifications.reduce((acc, cert) => {
+                        const { category } = getCertificationIcon(cert);
+                        if (!acc[category]) acc[category] = [];
+                        acc[category].push(cert);
+                        return acc;
+                      }, {} as Record<string, string[]>)
+                    ).map(([category, certs]) => (
+                      <div key={category} className="space-y-2">
+                        <div className="flex items-center gap-2">
+                          {getCertificationIcon(certs[0]).icon}
+                          <span className="text-[13px] font-medium text-gray-700">{category}</span>
+                        </div>
+                        {certs.map((cert, index) => (
+                          <div
+                            key={index}
+                            className="flex items-center gap-2 text-[13px] text-gray-600 ml-6"
+                          >
+                            <span>{cert}</span>
+                          </div>
+                        ))}
                       </div>
                     ))}
                   </div>

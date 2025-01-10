@@ -208,54 +208,38 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
               <form ref={form} onSubmit={handleSubmit} className="p-4 space-y-4 sm:p-5 sm:space-y-5">
                 <div className="space-y-4 sm:space-y-5">
                   <FloatingLabelInput
-                    id="user_name"
-                    name="user_name"
+                    id="name"
+                    name="name"
                     required
                     placeholder="Name"
-                    description="Name"
-                    icon={
-                      <IconWrapper color="bg-[#007AFF]/10">
-                        <User className="w-4 h-4 text-[#007AFF]" />
-                      </IconWrapper>
-                    }
+                    description="Your name"
+                    icon={<User className="w-5 h-5 text-[#007AFF]" />}
                   />
                   <FloatingLabelInput
-                    id="user_email"
-                    name="user_email"
+                    id="email"
+                    name="email"
                     type="email"
                     required
                     placeholder="Email"
-                    description="Email"
-                    icon={
-                      <IconWrapper color="bg-[#34C759]/10">
-                        <Mail className="w-4 h-4 text-[#34C759]" />
-                      </IconWrapper>
-                    }
+                    description="Your email address"
+                    icon={<Mail className="w-5 h-5 text-[#34C759]" />}
                   />
                   <FloatingLabelInput
                     id="subject"
                     name="subject"
                     required
                     placeholder="Subject"
-                    description="Subject"
-                    icon={
-                      <IconWrapper color="bg-[#AF52DE]/10">
-                        <FileText className="w-4 h-4 text-[#AF52DE]" />
-                      </IconWrapper>
-                    }
+                    description="Message subject"
+                    icon={<FileText className="w-5 h-5 text-[#FF9500]" />}
                   />
                   <FloatingLabelInput
                     id="message"
                     name="message"
                     required
                     placeholder="Message"
-                    description="Message"
+                    description="Your message"
                     isTextArea
-                    icon={
-                      <IconWrapper color="bg-[#FF9500]/10">
-                        <MessageSquare className="w-4 h-4 text-[#FF9500]" />
-                      </IconWrapper>
-                    }
+                    icon={<MessageSquare className="w-5 h-5 text-[#AF52DE]" />}
                   />
                 </div>
 

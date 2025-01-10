@@ -459,7 +459,6 @@ const defaultContext: Omit<CareerContextType, 'updatePersonalInfo' | 'updateExpe
     "Medical First Aid",
     "Instron Calibration Training - Static Systems",
     "Instron Calibration Training - Dynamic Systems",
-    "Instron Calibration Training - Impact Systems",
     "High Voltage Training",
     "Crowd & Crisis Management"
   ]
