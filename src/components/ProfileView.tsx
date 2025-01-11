@@ -821,7 +821,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ onDownloadCV, onDownloadCover
               className="ios-card"
             >
               <div className="ios-card-padding">
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center justify-between mb-6">
                   <h3 className="text-[20px] font-semibold">Experience Timeline</h3>
                   <button
                     onClick={() => setShowAllExperiences(!showAllExperiences)}
