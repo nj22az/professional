@@ -635,19 +635,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ onDownloadCV, onDownloadCover
                     draggable={false}
                   />
                 </motion.div>
-                <div className="w-[160px] flex flex-col gap-2">
-                  <motion.button
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={downloadTimelineCSV}
-                    className="ios-button-large bg-blue-50 text-blue-600 hover:bg-blue-100 h-8 text-[13px]"
-                  >
-                    <Download className="w-3.5 h-3.5" />
-                    Timeline
-                  </motion.button>
-                </div>
+                {/* Removed the CSV download button while keeping the timeline functionality */}
               </div>
 
               {/* Profile Info */}
