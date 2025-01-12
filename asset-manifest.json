@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/professional/static/css/main.06167343.css",
-    "main.js": "/professional/static/js/main.7a834749.js",
-    "static/js/213.6c4990cc.chunk.js": "/professional/static/js/213.6c4990cc.chunk.js",
-    "static/js/455.a749e677.chunk.js": "/professional/static/js/455.a749e677.chunk.js",
-    "index.html": "/professional/index.html",
-    "main.06167343.css.map": "/professional/static/css/main.06167343.css.map",
-    "main.7a834749.js.map": "/professional/static/js/main.7a834749.js.map",
-    "213.6c4990cc.chunk.js.map": "/professional/static/js/213.6c4990cc.chunk.js.map",
-    "455.a749e677.chunk.js.map": "/professional/static/js/455.a749e677.chunk.js.map"
+    "main.css": "https://nj22az.github.io/professional/static/css/main.06167343.css",
+    "main.js": "https://nj22az.github.io/professional/static/js/main.ea015011.js",
+    "static/js/213.6c4990cc.chunk.js": "https://nj22az.github.io/professional/static/js/213.6c4990cc.chunk.js",
+    "static/js/455.a749e677.chunk.js": "https://nj22az.github.io/professional/static/js/455.a749e677.chunk.js",
+    "index.html": "https://nj22az.github.io/professional/index.html",
+    "main.06167343.css.map": "https://nj22az.github.io/professional/static/css/main.06167343.css.map",
+    "main.ea015011.js.map": "https://nj22az.github.io/professional/static/js/main.ea015011.js.map",
+    "213.6c4990cc.chunk.js.map": "https://nj22az.github.io/professional/static/js/213.6c4990cc.chunk.js.map",
+    "455.a749e677.chunk.js.map": "https://nj22az.github.io/professional/static/js/455.a749e677.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.06167343.css",
-    "static/js/main.7a834749.js"
+    "static/js/main.ea015011.js"
   ]
 }
