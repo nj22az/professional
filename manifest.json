@@ -1,6 +1,7 @@
 {
-  "short_name": "CV Website",
-  "name": "CV Website",
+  "short_name": "Nils Johansson",
+  "name": "Nils Johansson - Marine & Field Service Engineer",
+  "description": "Professional portfolio of Nils Johansson, showcasing expertise in marine engineering, field service, and technical systems development.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -11,5 +12,6 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "categories": ["professional", "engineering", "portfolio"]
 } 
